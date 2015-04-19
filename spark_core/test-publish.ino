@@ -1,3 +1,9 @@
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+#elif defined(SPARK)
+#include "application.h"
+#endif
+
 const int buttonPin = D2;
 const int ledPin = D7;
 int buttonState = LOW;
