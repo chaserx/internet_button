@@ -5,8 +5,7 @@
 #endif
 
 const int buttonPin = D2;
-const int ledPin = D7;
-const int commPin = D4;
+const int ledPin = D4;
 int buttonState = LOW;
 long lastDebounceTime = 0;
 long debounceDelay = 50;
@@ -15,12 +14,10 @@ int lastButtonState = HIGH;
 void setup() {
   pinMode(buttonPin, INPUT_PULLUP);
   pinMode(ledPin, OUTPUT);
-  pinMode(commPin, OUTPUT);
 }
 
 void loop() {
   digitalWrite(ledPin, LOW);
-  digitalWrite(commPin, HIGH);
   int reading = digitalRead(buttonPin);
   if (reading != lastButtonState) {
     lastDebounceTime = millis();
@@ -31,11 +28,16 @@ void loop() {
       buttonState = reading;
 
       if (buttonState == LOW) {
-        digitalWrite(ledPin, HIGH);
-        digitalWrite(commPin, LOW);
+        burnLED(314);
         Spark.publish("button_status","closed");
       }
     }
   }
   lastButtonState = reading;
+}
+
+void burnLED(int wait) {
+  digitalWrite(ledPin, HIGH);
+  delay(wait);
+  digitalWrite(ledPin, LOW);
 }
