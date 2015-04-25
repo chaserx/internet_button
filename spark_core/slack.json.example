@@ -1,0 +1,16 @@
+{
+  "eventName": "button_status",
+  "url": "https://hooks.slack.com/services/xblahx/BLAHX/asdfghjksadfghjsdfgh",
+  "coreID": "ABCxxxxxDEF123",
+  "_": "The following parameters are optional",
+  "requestType": "POST",
+  "headers": null,
+  "query": null,
+  "json":
+    { "channel": "#bot-testing",
+      "username": "internet button",
+      "icon_emoji": ":radio_button:",
+      "text": "i am internet button, hear me beep" },
+  "auth": null,
+  "mydevices": true
+}
